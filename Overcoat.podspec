@@ -134,7 +134,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'ReactiveCocoa' do |ss|
-    ss.dependency 'ReactiveCocoa', '~> 2.4'
+    ss.ios.deployment_target = '8.0'
+    ss.osx.deployment_target = '10.9'
+    
+    ss.dependency 'ReactiveCocoa', '~> 3.0'
     ss.source_files = 'sources/ReactiveCocoa/ReactiveCocoa+Overcoat.h'
     ss.pod_target_xcconfig = ss.user_target_xcconfig = {
       'GCC_PREPROCESSOR_DEFINITIONS' => 'OVERCOAT_SUPPORT_REACTIVE_COCOA=1',  # Used for shortcuts in umbrella header
